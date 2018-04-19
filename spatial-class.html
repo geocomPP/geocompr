@@ -47,7 +47,7 @@
 
 
 
-<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
 <link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-0.7.7/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
@@ -678,7 +678,7 @@ point2 =<span class="st"> </span><span class="kw">st_point</span>(<span class="k
 <p>In most cases, an <code>sfc</code> object contains objects of the same geometry type. Therefore, when we convert <code>sfg</code> objects of type polygon into a simple feature geometry column, we would also end up with an <code>sfc</code> object of type polygon. Equally, a geometry column of multilinestrings would result in an <code>sfc</code> object of type multilinestring:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># sfc POLYGON</span>
 polygon_list1 =<span class="st"> </span><span class="kw">list</span>(<span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>)))
-polygon1 =<span class="st"> </span><span class="kw">st_polygon</span>(polygon_list)
+polygon1 =<span class="st"> </span><span class="kw">st_polygon</span>(polygon_list1)
 polygon_list2 =<span class="st"> </span><span class="kw">list</span>(<span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>)))
 polygon2 =<span class="st"> </span><span class="kw">st_polygon</span>(polygon_list2)
 <span class="kw">st_sfc</span>(polygon1, polygon2)
