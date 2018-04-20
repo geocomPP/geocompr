@@ -277,7 +277,7 @@ leaflet() %>%
 ```
 
 <div class="figure" style="text-align: center">
-preserve27c446ad456176ba
+preserve6ea0c9bdde44dceb
 <p class="caption">(\#fig:interactive)Where the authors are from. The basemap is a tiled image of the Earth at Night provided by NASA. Interact with the online version at robinlovelace.net/geocompr, for example by zooming-in and clicking on the popups.</p>
 </div>
 
@@ -3119,7 +3119,7 @@ any(st_touches(cycle_hire, cycle_hire_osm, sparse = FALSE))
 
 
 <div class="figure" style="text-align: center">
-preserve65b9888bec8eb911
+preserved5d50de818428679
 <p class="caption">(\#fig:cycle-hire)The spatial distribution of cycle hire points in London based on official data (blue) and OpenStreetMap data (red).</p>
 </div>
 
@@ -6006,7 +6006,7 @@ The result of this code, visualized in Figure \@ref(fig:cycleways), identifies r
 Although other routes between zones are likely to be used --- in reality people do not travel to zone centroids or always use the shortest route algorithm for a particular mode --- the results demonstrate routes along which cycle paths could be prioritized.
 
 <div class="figure" style="text-align: center">
-preserve1a0102586d9494ca
+preserve5104ffd4da16df8d
 <p class="caption">(\#fig:cycleways)Potential routes along which to prioritise cycle infrastructure in Bristol, based on access key rail stations (red dots) and routes with many short car journeys (north of Bristol surrounding Stoke Bradley). Line thickness is proportional to number of trips.</p>
 </div>
 
@@ -6622,7 +6622,7 @@ result = sum(reclass)
 For instance, a score greater than 9 might be a suitable threshold indicating raster cells where a bike shop could be placed (Figure \@ref(fig:bikeshop-berlin)).
 
 <div class="figure" style="text-align: center">
-preserve5e7fac20fa3e8338
+preserveddac72b1ff497cdb
 <p class="caption">(\#fig:bikeshop-berlin)Suitable areas (i.e. raster cells with a score > 9) in accordance with our hypothetical survey for bike stores in Berlin.</p>
 </div>
 
@@ -7325,7 +7325,7 @@ mapview::mapview(nz)
 ```
 
 <div class="figure" style="text-align: center">
-preserve50d93c9b5cc10030
+preserve448d06865419fd8f
 <p class="caption">(\#fig:mapview)Illustration of mapview in action.</p>
 </div>
 
@@ -8939,9 +8939,9 @@ sp_cv = mlr::resample(learner = lrn, task = task,
 <!-- sp_cv and conv_cv have been saved in spatialcv.Rdata. I needed to run the modeling outside of the book since knitr sets its own seed and I am not sure if this actually helps to make sure that the same partitions are used in the cv.
 I really don't understand why I have to load spatialcv.Rdata here a third time...-->
 
+The output of the preceding code chunk is a bias-reduced assessment of the model's predictive performance, as illustrated in the following code chunk  (required input data is saved in the file `spatialcv.Rdata` in the book's GitHub repo):
 
 
-The output of the preceding code chunk is a bias-reduced assessment of the model's predictive performance:
 
 
 ```r
@@ -9124,7 +9124,8 @@ Specifying the `resample()` parameters follows the exact same procedure as prese
 This allows the extraction of the hyperparameter tuning results which is important if we plan follow-up analyses on the tuning.
 After the processing, it is good practice to explicitly stop the parallelization with `parallelStop()`.
 Finally, we save the output object (`result`) to disk in case we would like to use it another R session.
-Before running the subsequent code, please be aware that fitting 125,500 models took around 37 minutes on a server using 24 cores (see below).
+Before running the subsequent code, be aware that it is time-consuming:
+the 125,500 models took ~1hr on a server using 24 cores (see below).
 
 
 ```r
@@ -9140,7 +9141,13 @@ parallelStop()
 # saveRDS(result, "svm_sp_sp_rbf_50it.rds")
 ```
 
+To save your computer, we don't expect you to run this entire model locally.
+Instead we load subset of the results, saved in the book's GitHub repo, and load it as follows:
 
+
+```r
+result = readRDS("extdata/spatial-cv-result.rds")
+```
 
 Note that runtime depends on many aspects: CPU speed, the selected algorithm, the selected number of cores and the dataset.
 

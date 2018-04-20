@@ -626,7 +626,7 @@ sp_cv =<span class="st"> </span>mlr::<span class="kw">resample</span>(<span clas
                       <span class="dt">measures =</span> mlr::auc)</code></pre></div>
 <!-- sp_cv and conv_cv have been saved in spatialcv.Rdata. I needed to run the modeling outside of the book since knitr sets its own seed and I am not sure if this actually helps to make sure that the same partitions are used in the cv.
 I really don't understand why I have to load spatialcv.Rdata here a third time...-->
-<p>The output of the preceding code chunk is a bias-reduced assessment of the model’s predictive performance:</p>
+<p>The output of the preceding code chunk is a bias-reduced assessment of the model’s predictive performance, as illustrated in the following code chunk (required input data is saved in the file <code>spatialcv.Rdata</code> in the book’s GitHub repo):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># summary statistics of the 500 models</span>
 <span class="kw">summary</span>(sp_cv$measures.test$auc)
 <span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
@@ -724,7 +724,7 @@ if (<span class="kw">Sys.info</span>()[<span class="st">&quot;sysname&quot;</spa
   <span class="kw">parallelStartSocket</span>(<span class="dt">level =</span> <span class="st">&quot;mlr.tuneParams&quot;</span>,
                       <span class="dt">cpus =</span>  <span class="kw">round</span>(parallel::<span class="kw">detectCores</span>() /<span class="st"> </span><span class="dv">2</span>))
 }</code></pre></div>
-<p>Now we are set-up for computing the nested spatial CV. Using a seed allows to recreate the exact same spatial partitions when re-running the code. Specifying the <code>resample()</code> parameters follows the exact same procedure as presented when using a GLM, the only difference being the <code>extract</code> argument. This allows the extraction of the hyperparameter tuning results which is important if we plan follow-up analyses on the tuning. After the processing, it is good practice to explicitly stop the parallelization with <code>parallelStop()</code>. Finally, we save the output object (<code>result</code>) to disk in case we would like to use it another R session. Before running the subsequent code, please be aware that fitting 125,500 models took around 37 minutes on a server using 24 cores (see below).</p>
+<p>Now we are set-up for computing the nested spatial CV. Using a seed allows to recreate the exact same spatial partitions when re-running the code. Specifying the <code>resample()</code> parameters follows the exact same procedure as presented when using a GLM, the only difference being the <code>extract</code> argument. This allows the extraction of the hyperparameter tuning results which is important if we plan follow-up analyses on the tuning. After the processing, it is good practice to explicitly stop the parallelization with <code>parallelStop()</code>. Finally, we save the output object (<code>result</code>) to disk in case we would like to use it another R session. Before running the subsequent code, be aware that it is time-consuming: the 125,500 models took ~1hr on a server using 24 cores (see below).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">12345</span>)
 result =<span class="st"> </span>mlr::<span class="kw">resample</span>(<span class="dt">learner =</span> wrapped_lrn_ksvm, 
                        <span class="dt">task =</span> task,
@@ -735,6 +735,8 @@ result =<span class="st"> </span>mlr::<span class="kw">resample</span>(<span cla
 <span class="kw">parallelStop</span>()
 <span class="co"># save your result, e.g.:</span>
 <span class="co"># saveRDS(result, &quot;svm_sp_sp_rbf_50it.rds&quot;)</span></code></pre></div>
+<p>To save your computer, we don’t expect you to run this entire model locally. Instead we load subset of the results, saved in the book’s GitHub repo, and load it as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;extdata/spatial-cv-result.rds&quot;</span>)</code></pre></div>
 <p>Note that runtime depends on many aspects: CPU speed, the selected algorithm, the selected number of cores and the dataset.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Exploring the results</span>
 <span class="co"># runtime in minutes</span>
