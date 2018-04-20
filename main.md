@@ -277,7 +277,7 @@ leaflet() %>%
 ```
 
 <div class="figure" style="text-align: center">
-preserve037823213c20819c
+preserveded2f40199de61ef
 <p class="caption">(\#fig:interactive)Where the authors are from. The basemap is a tiled image of the Earth at Night provided by NASA. Interact with the online version at robinlovelace.net/geocompr, for example by zooming-in and clicking on the popups.</p>
 </div>
 
@@ -3119,7 +3119,7 @@ any(st_touches(cycle_hire, cycle_hire_osm, sparse = FALSE))
 
 
 <div class="figure" style="text-align: center">
-preservefd16b780e3a9231d
+preserve6fb1c90241c2f43f
 <p class="caption">(\#fig:cycle-hire)The spatial distribution of cycle hire points in London based on official data (blue) and OpenStreetMap data (red).</p>
 </div>
 
@@ -4540,6 +4540,16 @@ linestring = st_cast(multipoint, "LINESTRING")
 polyg = st_cast(multipoint, "POLYGON")
 ```
 
+
+```
+#> Found more than one class "XY" in cache; using the first, from namespace 'sf'
+#> Also defined by 'mapview'
+#> Found more than one class "XY" in cache; using the first, from namespace 'sf'
+#> Also defined by 'mapview'
+#> Found more than one class "XY" in cache; using the first, from namespace 'sf'
+#> Also defined by 'mapview'
+```
+
 <div class="figure" style="text-align: center">
 <img src="figures/single-cast-1.png" alt="Examples of linestring and polygon 'casted' from a multipoint geometry." width="576" />
 <p class="caption">(\#fig:single-cast)Examples of linestring and polygon 'casted' from a multipoint geometry.</p>
@@ -4552,6 +4562,18 @@ This process can be also reversed using `st_cast`:
 multipoint_2 = st_cast(linestring, "MULTIPOINT")
 multipoint_3 = st_cast(polyg, "MULTIPOINT")
 all.equal(multipoint, multipoint_2, multipoint_3)
+#> Found more than one class "XY" in cache; using the first, from namespace 'sf'
+#> Also defined by 'mapview'
+#> Found more than one class "XY" in cache; using the first, from namespace 'sf'
+#> Also defined by 'mapview'
+#> Found more than one class "XY" in cache; using the first, from namespace 'sf'
+#> Also defined by 'mapview'
+#> Found more than one class "XY" in cache; using the first, from namespace 'sf'
+#> Also defined by 'mapview'
+#> Found more than one class "XY" in cache; using the first, from namespace 'sf'
+#> Also defined by 'mapview'
+#> Found more than one class "XY" in cache; using the first, from namespace 'sf'
+#> Also defined by 'mapview'
 #> [1] TRUE
 ```
 
@@ -6006,7 +6028,7 @@ The result of this code, visualized in Figure \@ref(fig:cycleways), identifies r
 Although other routes between zones are likely to be used --- in reality people do not travel to zone centroids or always use the shortest route algorithm for a particular mode --- the results demonstrate routes along which cycle paths could be prioritized.
 
 <div class="figure" style="text-align: center">
-preserve9004d3a2cb0de996
+preserve657d3a60de8bac5e
 <p class="caption">(\#fig:cycleways)Potential routes along which to prioritise cycle infrastructure in Bristol, based on access key rail stations (red dots) and routes with many short car journeys (north of Bristol surrounding Stoke Bradley). Line thickness is proportional to number of trips.</p>
 </div>
 
@@ -6622,7 +6644,7 @@ result = sum(reclass)
 For instance, a score greater than 9 might be a suitable threshold indicating raster cells where a bike shop could be placed (Figure \@ref(fig:bikeshop-berlin)).
 
 <div class="figure" style="text-align: center">
-preservea1d622e0026d9995
+preserve87a039f8a30f59a5
 <p class="caption">(\#fig:bikeshop-berlin)Suitable areas (i.e. raster cells with a score > 9) in accordance with our hypothetical survey for bike stores in Berlin.</p>
 </div>
 
@@ -7325,7 +7347,7 @@ mapview::mapview(nz)
 ```
 
 <div class="figure" style="text-align: center">
-preservec28343c94c7f591a
+preserve0a73ef57d16e6094
 <p class="caption">(\#fig:mapview)Illustration of mapview in action.</p>
 </div>
 
@@ -8906,9 +8928,9 @@ The set-up steps for modeling with **mlr** may seem tedious.
 But remember this single interface provides access to the 150+ learners shown by `listLearners()`; it would be far more tedious to learn the interface for each learner!
 Further advantages are simple parallelization of resampling techniques and the ability to tune machine learning hyperparameters (see section \@ref(svm)).
 Most importantly, (spatial) resampling in **mlr** is straightforward, requiring only two more steps: specifying a resampling method and running it.
-We will use a 100-repeated 5-fold spatial CV: five partitions will be chosen based on the provided coordinates in our `task` and the partitioning will be repeated 100 times:[^1]
+We will use a 100-repeated 5-fold spatial CV: five partitions will be chosen based on the provided coordinates in our `task` and the partitioning will be repeated 100 times:[^13]
 
-[^1]: 
+[^13]: 
 
     Note that package **sperrorest** initially implemented spatial cross-validation in R [@brenning_spatial_2012].
     In the meantime, its functionality was integrated into the **mlr** package which is the reason why we are using **mlr** [@schratz_performance_nodate].The **caret** package is another umbrella-package [@kuhn_applied_2013] for streamlined modeling in R, however, so far it does not provide spatial CV which is why we refrain from using it for spatial data.
