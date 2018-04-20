@@ -2,7 +2,7 @@
 --- 
 title: 'Geocomputation with R'
 author: 'Robin Lovelace, Jakub Nowosad, Jannes Muenchow'
-date: '2018-04-19'
+date: '2018-04-20'
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: book
@@ -39,7 +39,7 @@ New chapters will be added to this website as the project progresses, hosted at 
 
 [![Build Status](https://travis-ci.org/Robinlovelace/geocompr.svg?branch=master)](https://travis-ci.org/Robinlovelace/geocompr)
 
-The version of the book you are reading now was built on 2018-04-19 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
+The version of the book you are reading now was built on 2018-04-20 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
 
 ## How to contribute? {-}
 
@@ -277,7 +277,7 @@ leaflet() %>%
 ```
 
 <div class="figure" style="text-align: center">
-preservef2dcd6655148c585
+preserve27c446ad456176ba
 <p class="caption">(\#fig:interactive)Where the authors are from. The basemap is a tiled image of the Earth at Night provided by NASA. Interact with the online version at robinlovelace.net/geocompr, for example by zooming-in and clicking on the popups.</p>
 </div>
 
@@ -3119,7 +3119,7 @@ any(st_touches(cycle_hire, cycle_hire_osm, sparse = FALSE))
 
 
 <div class="figure" style="text-align: center">
-preserve181522fde50e520e
+preserve65b9888bec8eb911
 <p class="caption">(\#fig:cycle-hire)The spatial distribution of cycle hire points in London based on official data (blue) and OpenStreetMap data (red).</p>
 </div>
 
@@ -6006,7 +6006,7 @@ The result of this code, visualized in Figure \@ref(fig:cycleways), identifies r
 Although other routes between zones are likely to be used --- in reality people do not travel to zone centroids or always use the shortest route algorithm for a particular mode --- the results demonstrate routes along which cycle paths could be prioritized.
 
 <div class="figure" style="text-align: center">
-preserveaa8aad1aa066e699
+preserve1a0102586d9494ca
 <p class="caption">(\#fig:cycleways)Potential routes along which to prioritise cycle infrastructure in Bristol, based on access key rail stations (red dots) and routes with many short car journeys (north of Bristol surrounding Stoke Bradley). Line thickness is proportional to number of trips.</p>
 </div>
 
@@ -6622,7 +6622,7 @@ result = sum(reclass)
 For instance, a score greater than 9 might be a suitable threshold indicating raster cells where a bike shop could be placed (Figure \@ref(fig:bikeshop-berlin)).
 
 <div class="figure" style="text-align: center">
-preserve6d7ef017df8bbc10
+preserve5e7fac20fa3e8338
 <p class="caption">(\#fig:bikeshop-berlin)Suitable areas (i.e. raster cells with a score > 9) in accordance with our hypothetical survey for bike stores in Berlin.</p>
 </div>
 
@@ -7325,7 +7325,7 @@ mapview::mapview(nz)
 ```
 
 <div class="figure" style="text-align: center">
-preserve290f2f470d6e8484
+preserve50d93c9b5cc10030
 <p class="caption">(\#fig:mapview)Illustration of mapview in action.</p>
 </div>
 
@@ -7516,8 +7516,37 @@ Of note is **cartography**, which generates a range of unusual maps including ch
 
 ## Exercises
 
+For these exercises we will create a new object, `africa`, using the `world` and `worldbank_df` datasets from the **spData** package (see chapter \@ref(attr) to learn more about attribute operations):
+
+
+```r
+africa = world %>% 
+  filter(continent == "Africa") %>% 
+  left_join(worldbank_df, by = "iso_a2") %>% 
+  select(name, subregion, gdpPercap, HDI, pop_growth)
+```
+
+We will also use `zion` and `nlcd` datasets from **spDataLarge**:
+
+
+```r
+zion = st_read((system.file("vector/zion.gpkg", package = "spDataLarge"))) %>% 
+  st_transform(4326)
+#> Reading layer `zion' from data source `/home/travis/R/Library/spDataLarge/vector/zion.gpkg' using driver `GPKG'
+#> Simple feature collection with 1 feature and 11 fields
+#> geometry type:  POLYGON
+#> dimension:      XY
+#> bbox:           xmin: 303000 ymin: 4110000 xmax: 335000 ymax: 4150000
+#> epsg (SRID):    NA
+#> proj4string:    +proj=utm +zone=12 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+```
+
 <!-- static map 1 -->
+
 <!-- static map 2 -->
+
+<!-- static map 3 -->
+
 <!-- faceted map -->
 <!-- inset map -->
 <!-- animated map -->
