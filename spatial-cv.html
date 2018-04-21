@@ -734,7 +734,7 @@ result =<span class="st"> </span>mlr::<span class="kw">resample</span>(<span cla
 <span class="kw">parallelStop</span>()
 <span class="co"># save your result, e.g.:</span>
 <span class="co"># saveRDS(result, &quot;svm_sp_sp_rbf_50it.rds&quot;)</span></code></pre></div>
-<p>In case you do not want to run the entire spatial CV locally, you can load a subset of the results, saved in the book’s GitHub repo, and load them as follows:</p>
+<p>In case you do not want to run the entire model locally, we have saved a subset of the <a href="https://github.com/Robinlovelace/geocompr/blob/master/extdata/spatial_cv_result.rds">results</a> in the book’s GitHub repo. They can be loaded as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;extdata/spatial_cv_result.rds&quot;</span>)</code></pre></div>
 <p>Note that runtime depends on many aspects: CPU speed, the selected algorithm, the selected number of cores and the dataset.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Exploring the results</span>
