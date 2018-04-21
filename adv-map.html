@@ -897,26 +897,8 @@ Figure 9.21: Map of New Zealand created with ggplot2.
 <!-- static map 2 -->
 <!-- static map 3 -->
 <!-- faceted map -->
-<!-- inset map -->
-<!-- animated map -->
-<!-- interactive map -->
-<!-- web mapping -->
-<ol style="list-style-type: decimal">
-<li>Sketch out on paper ideas for a web mapping app that could be used to make transport or land-use policies more evidence based:</li>
-</ol>
-<ul>
-<li>In the city you live in, for a couple of users per day</li>
-<li>In the country you live in, for dozens of users per day</li>
-<li>Worldwide for hundreds of users per day and large data serving requirements</li>
-</ul>
-<ol style="list-style-type: decimal">
-<li>How would app design, deployment and project management decisions change as the scale of map deployment increases?</li>
-<li>Update the code in <code>coffeeApp/app.R</code> so that instead of centering on Brazil the user can select which country to focus on:
-<ul>
-<li>Using <code>textInput()</code></li>
-<li>Using <code>selectInput()</code></li>
-</ul></li>
-</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tm_shape</span>(africa) +<span class="st"> </span><span class="kw">tm_polygons</span>(<span class="st">&quot;pop_growth&quot;</span>) +<span class="st"> </span><span class="kw">tm_facets</span>(<span class="dt">by =</span> <span class="st">&quot;name&quot;</span>)</code></pre></div>
+<p><img src="figures/unnamed-chunk-36-1.png" width="576" style="display: block; margin: auto;" /> <!-- inset map --> <!-- animated map --> <!-- @robin --> <!-- interactive map --> <!-- @robin --> <!-- web mapping --> 1. Sketch out on paper ideas for a web mapping app that could be used to make transport or land-use policies more evidence based: - In the city you live in, for a couple of users per day - In the country you live in, for dozens of users per day - Worldwide for hundreds of users per day and large data serving requirements 1. How would app design, deployment and project management decisions change as the scale of map deployment increases? 1. Update the code in <code>coffeeApp/app.R</code> so that instead of centering on Brazil the user can select which country to focus on: - Using <code>textInput()</code> - Using <code>selectInput()</code></p>
 <!-- other mapping packages 1 -->
 <!-- other mapping packages 2 -->
 
