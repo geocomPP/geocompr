@@ -277,7 +277,7 @@ leaflet() %>%
 ```
 
 <div class="figure" style="text-align: center">
-preserve6980d43f1737d41f
+preserve63e892088496b0b3
 <p class="caption">(\#fig:interactive)Where the authors are from. The basemap is a tiled image of the Earth at Night provided by NASA. Interact with the online version at robinlovelace.net/geocompr, for example by zooming-in and clicking on the popups.</p>
 </div>
 
@@ -3119,7 +3119,7 @@ any(st_touches(cycle_hire, cycle_hire_osm, sparse = FALSE))
 
 
 <div class="figure" style="text-align: center">
-preservee7cb03235f8af992
+preserve8af2a01d8df7d914
 <p class="caption">(\#fig:cycle-hire)The spatial distribution of cycle hire points in London based on official data (blue) and OpenStreetMap data (red).</p>
 </div>
 
@@ -6028,7 +6028,7 @@ The result of this code, visualized in Figure \@ref(fig:cycleways), identifies r
 Although other routes between zones are likely to be used --- in reality people do not travel to zone centroids or always use the shortest route algorithm for a particular mode --- the results demonstrate routes along which cycle paths could be prioritized.
 
 <div class="figure" style="text-align: center">
-preserve9934d012b24f268e
+preserved8e3aef0a0b55f44
 <p class="caption">(\#fig:cycleways)Potential routes along which to prioritise cycle infrastructure in Bristol, based on access key rail stations (red dots) and routes with many short car journeys (north of Bristol surrounding Stoke Bradley). Line thickness is proportional to number of trips.</p>
 </div>
 
@@ -6644,7 +6644,7 @@ result = sum(reclass)
 For instance, a score greater than 9 might be a suitable threshold indicating raster cells where a bike shop could be placed (Figure \@ref(fig:bikeshop-berlin)).
 
 <div class="figure" style="text-align: center">
-preservec554bd12bec0223a
+preserve57ab1dd5cec810fb
 <p class="caption">(\#fig:bikeshop-berlin)Suitable areas (i.e. raster cells with a score > 9) in accordance with our hypothetical survey for bike stores in Berlin.</p>
 </div>
 
@@ -7347,7 +7347,7 @@ mapview::mapview(nz)
 ```
 
 <div class="figure" style="text-align: center">
-preserveafb136ac5b234560
+preserve8539209d17986b09
 <p class="caption">(\#fig:mapview)Illustration of mapview in action.</p>
 </div>
 
@@ -8665,7 +8665,7 @@ The first three rows of the resulting data frame, still named `lsl` look like th
 #> 3 712508 9558887  FALSE    20  0.039 0.0150 2100         2.3
 ```
 
-As a convenience to the reader, `lsl` is also available in the **spDataLarge** package along with the corresponding terrain attributes raster brick (`data("ta", package = "spDataLarge")`).
+As a convenience to the reader, `lsl` is also available in the **spDataLarge** package along with the corresponding terrain attributes stored in a raster stack (`data("ta", package = "spDataLarge")`).
 
 <div class="figure" style="text-align: center">
 <img src="figures/lsl-map-1.png" alt="Landslide initiation points (red) and points unaffected by landsliding (blue) in Southern Ecuador." width="576" />
@@ -8936,6 +8936,7 @@ We will use a 100-repeated 5-fold spatial CV: five partitions will be chosen bas
     In the meantime, its functionality was integrated into the **mlr** package which is the reason why we are using **mlr** [@schratz_performance_nodate].The **caret** package is another umbrella-package [@kuhn_applied_2013] for streamlined modeling in R, however, so far it does not provide spatial CV which is why we refrain from using it for spatial data.
 
 
+
 ```r
 resampling = makeResampleDesc(method = "SpRepCV", folds = 5, 
                               reps = 100)
@@ -9147,7 +9148,7 @@ This allows the extraction of the hyperparameter tuning results which is importa
 After the processing, it is good practice to explicitly stop the parallelization with `parallelStop()`.
 Finally, we save the output object (`result`) to disk in case we would like to use it another R session.
 Before running the subsequent code, be aware that it is time-consuming:
-the 125,500 models took ~1hr on a server using 24 cores (see below).
+the 125,500 models took ~1/2hr on a server using 24 cores (see below).
 
 
 ```r
@@ -9163,12 +9164,11 @@ parallelStop()
 # saveRDS(result, "svm_sp_sp_rbf_50it.rds")
 ```
 
-To save your computer, we don't expect you to run this entire model locally.
-Instead we load subset of the results, saved in the book's GitHub repo, and load it as follows:
+In case you do not want to run the entire spatial CV locally, you can load a subset of the results, saved in the book's GitHub repo, and load them as follows:
 
 
 ```r
-result = readRDS("extdata/spatial-cv-result.rds")
+result = readRDS("extdata/spatial_cv_result.rds")
 ```
 
 Note that runtime depends on many aspects: CPU speed, the selected algorithm, the selected number of cores and the dataset.
@@ -9254,6 +9254,7 @@ We recommend the following resources in this direction:
     - catchment area
 1. Extract the values from the corresponding output rasters to the `landslides` data frame (`data(landslides, package = "RSAGA"`) by adding new variables called `slope`, `cplan`, `cprof`, `elev` and `log_carea`. Keep all landslide initiation points and 175 randomly selected non-landslide points (see section \@ref(case-landslide) for details).
 1. Use the derived terrain attribute rasters in combination with a GLM to make a spatial prediction map similar to that shown in Figure \@ref(fig:lsl-susc).
+Running `data("study_mask", package = "spDataLarge")` attaches a mask of the study area.
 1. Compute a 100-repeated 5-fold non-spatial cross-validation and spatial CV based on the GLM learner and compare the AUROC values from both resampling strategies with the help of boxplots (see Figure \@ref(fig:boxplot-cv)).
 Hint: You need to specify a non-spatial task and a non-spatial resampling strategy.
 <!-- @Patrick: talk in person; but I think this step is not necessary since spatial and non-spatial partitions must be different -->
