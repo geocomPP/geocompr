@@ -2,7 +2,7 @@
 --- 
 title: 'Geocomputation with R'
 author: 'Robin Lovelace, Jakub Nowosad, Jannes Muenchow'
-date: '2018-04-20'
+date: '2018-04-21'
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: book
@@ -39,7 +39,7 @@ New chapters will be added to this website as the project progresses, hosted at 
 
 [![Build Status](https://travis-ci.org/Robinlovelace/geocompr.svg?branch=master)](https://travis-ci.org/Robinlovelace/geocompr)
 
-The version of the book you are reading now was built on 2018-04-20 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
+The version of the book you are reading now was built on 2018-04-21 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
 
 ## How to contribute? {-}
 
@@ -277,7 +277,7 @@ leaflet() %>%
 ```
 
 <div class="figure" style="text-align: center">
-preservef111de59d466e283
+preserve6980d43f1737d41f
 <p class="caption">(\#fig:interactive)Where the authors are from. The basemap is a tiled image of the Earth at Night provided by NASA. Interact with the online version at robinlovelace.net/geocompr, for example by zooming-in and clicking on the popups.</p>
 </div>
 
@@ -3119,7 +3119,7 @@ any(st_touches(cycle_hire, cycle_hire_osm, sparse = FALSE))
 
 
 <div class="figure" style="text-align: center">
-preserve52ce86529bbae74e
+preservee7cb03235f8af992
 <p class="caption">(\#fig:cycle-hire)The spatial distribution of cycle hire points in London based on official data (blue) and OpenStreetMap data (red).</p>
 </div>
 
@@ -6028,7 +6028,7 @@ The result of this code, visualized in Figure \@ref(fig:cycleways), identifies r
 Although other routes between zones are likely to be used --- in reality people do not travel to zone centroids or always use the shortest route algorithm for a particular mode --- the results demonstrate routes along which cycle paths could be prioritized.
 
 <div class="figure" style="text-align: center">
-preserve9ba9094ed32903d3
+preserve9934d012b24f268e
 <p class="caption">(\#fig:cycleways)Potential routes along which to prioritise cycle infrastructure in Bristol, based on access key rail stations (red dots) and routes with many short car journeys (north of Bristol surrounding Stoke Bradley). Line thickness is proportional to number of trips.</p>
 </div>
 
@@ -6644,7 +6644,7 @@ result = sum(reclass)
 For instance, a score greater than 9 might be a suitable threshold indicating raster cells where a bike shop could be placed (Figure \@ref(fig:bikeshop-berlin)).
 
 <div class="figure" style="text-align: center">
-preserveff2734cc88d47661
+preservec554bd12bec0223a
 <p class="caption">(\#fig:bikeshop-berlin)Suitable areas (i.e. raster cells with a score > 9) in accordance with our hypothetical survey for bike stores in Berlin.</p>
 </div>
 
@@ -7326,15 +7326,15 @@ tmap_animation(urb_anim, filename = "urb_anim.gif", delay = 25)
 ```
 
 Another illustration of the power of animated maps is provided in Figure \@ref(fig:animus).
-This shows the colonization of the United States, which moved progressively from the East to the West and finally into the interior.
+This shows the development of states in United States, which first formed in the East and then incrementally to the West and finally into the interior.
 Code to reproduce this map can be found in the script `09-usboundaries.R`.
 
 
 
 
 <div class="figure" style="text-align: center">
-<img src="https://user-images.githubusercontent.com/1825120/38543030-5794b6f0-3c9b-11e8-9da9-10ec1f3ea726.gif" alt="Animated map showing population growth and colonization in the United States."  />
-<p class="caption">(\#fig:animus)Animated map showing population growth and colonization in the United States.</p>
+<img src="https://user-images.githubusercontent.com/1825120/38543030-5794b6f0-3c9b-11e8-9da9-10ec1f3ea726.gif" alt="Animated map showing population growth and state formation and boundary changes in the United States, 1790-2010."  />
+<p class="caption">(\#fig:animus)Animated map showing population growth and state formation and boundary changes in the United States, 1790-2010.</p>
 </div>
 
 ## Interactive maps
@@ -7347,7 +7347,7 @@ mapview::mapview(nz)
 ```
 
 <div class="figure" style="text-align: center">
-preservec9adb7d57d713859
+preserveafb136ac5b234560
 <p class="caption">(\#fig:mapview)Illustration of mapview in action.</p>
 </div>
 
