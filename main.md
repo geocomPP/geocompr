@@ -277,7 +277,7 @@ leaflet() %>%
 ```
 
 <div class="figure" style="text-align: center">
-preserve9b0d5720e4d7ee8e
+preservecdaf4f0fdceb90c9
 <p class="caption">(\#fig:interactive)Where the authors are from. The basemap is a tiled image of the Earth at Night provided by NASA. Interact with the online version at robinlovelace.net/geocompr, for example by zooming-in and clicking on the popups.</p>
 </div>
 
@@ -3119,7 +3119,7 @@ any(st_touches(cycle_hire, cycle_hire_osm, sparse = FALSE))
 
 
 <div class="figure" style="text-align: center">
-preserve156e0390f2beb6c6
+preservebb51e3201aaf932f
 <p class="caption">(\#fig:cycle-hire)The spatial distribution of cycle hire points in London based on official data (blue) and OpenStreetMap data (red).</p>
 </div>
 
@@ -6028,7 +6028,7 @@ The result of this code, visualized in Figure \@ref(fig:cycleways), identifies r
 Although other routes between zones are likely to be used --- in reality people do not travel to zone centroids or always use the shortest route algorithm for a particular mode --- the results demonstrate routes along which cycle paths could be prioritized.
 
 <div class="figure" style="text-align: center">
-preserve59b418353af4381f
+preservee2e45ff75ab9211b
 <p class="caption">(\#fig:cycleways)Potential routes along which to prioritise cycle infrastructure in Bristol, based on access key rail stations (red dots) and routes with many short car journeys (north of Bristol surrounding Stoke Bradley). Line thickness is proportional to number of trips.</p>
 </div>
 
@@ -6644,7 +6644,7 @@ result = sum(reclass)
 For instance, a score greater than 9 might be a suitable threshold indicating raster cells where a bike shop could be placed (Figure \@ref(fig:bikeshop-berlin)).
 
 <div class="figure" style="text-align: center">
-preserve7162e8ec20ca9b6c
+preserve44e7a79d99ce4f47
 <p class="caption">(\#fig:bikeshop-berlin)Suitable areas (i.e. raster cells with a score > 9) in accordance with our hypothetical survey for bike stores in Berlin.</p>
 </div>
 
@@ -7347,7 +7347,7 @@ mapview::mapview(nz)
 ```
 
 <div class="figure" style="text-align: center">
-preserve901491a103ee504f
+preserveb1be89bc5e7b79a1
 <p class="caption">(\#fig:mapview)Illustration of mapview in action.</p>
 </div>
 
@@ -7554,13 +7554,6 @@ We will also use `zion` and `nlcd` datasets from **spDataLarge**:
 ```r
 zion = st_read((system.file("vector/zion.gpkg", package = "spDataLarge"))) %>% 
   st_transform(4326)
-#> Reading layer `zion' from data source `/home/travis/R/Library/spDataLarge/vector/zion.gpkg' using driver `GPKG'
-#> Simple feature collection with 1 feature and 11 fields
-#> geometry type:  POLYGON
-#> dimension:      XY
-#> bbox:           xmin: 303000 ymin: 4110000 xmax: 335000 ymax: 4150000
-#> epsg (SRID):    NA
-#> proj4string:    +proj=utm +zone=12 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
 ```
 
 <!-- static map 1 -->
